@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="DiscountEngine - performance" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-08-18T01:35:20.949Z" hostname="LAPTOP-LGJRM4V2" time="0.283">
+  <properties/>
+  <testcase name="deberia crecer de forma lineal al pasar de 1 regla a 2 reglas" classname="com.events.billing.performance.DiscountEnginePerformanceTest" time="0.211"/>
+  <testcase name="deberia procesar 10.000 compras en menos de 1 segundo" classname="com.events.billing.performance.DiscountEnginePerformanceTest" time="0.061"/>
+  <system-out><![CDATA[[perf] 1 regla : 11206 us
+[perf] 2 reglas: 11106 us
+[perf] factor  : 0,99x
+[perf] Procesar 10000 compras tomo 18 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="DiscountEngine" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-08-18T01:35:20.123Z" hostname="LAPTOP-LGJRM4V2" time="0.313">
+  <properties/>
+  <testcase name="deberia garantizar que el total nunca sea negativo al combinar reglas" classname="com.events.billing.DiscountEngineTest" time="0.197"/>
+  <testcase name="deberia retornar el subtotal cuando no hay reglas" classname="com.events.billing.DiscountEngineTest" time="0.002"/>
+  <testcase name="deberia aplicar solo la categoria cuando es la unica regla" classname="com.events.billing.DiscountEngineTest" time="0.005"/>
+  <testcase name="deberia aplicar solo el cupon cuando es la unica regla" classname="com.events.billing.DiscountEngineTest" time="0.003"/>
+  <testcase name="deberia aplicar cupon y categoria en orden secuencial (categoria -&gt; cupon)" classname="com.events.billing.DiscountEngineTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

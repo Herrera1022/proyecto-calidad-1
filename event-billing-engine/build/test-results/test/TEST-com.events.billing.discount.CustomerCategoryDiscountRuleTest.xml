@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CustomerCategoryDiscountRule" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-08-18T01:35:20.931Z" hostname="LAPTOP-LGJRM4V2" time="0.014">
+  <properties/>
+  <testcase name="deberia aplicar 20% de descuento para un cliente senior" classname="com.events.billing.discount.CustomerCategoryDiscountRuleTest" time="0.002"/>
+  <testcase name="deberia tratar la categoria nula como REGULAR (sin descuento)" classname="com.events.billing.discount.CustomerCategoryDiscountRuleTest" time="0.002"/>
+  <testcase name="deberia no aplicar descuento para un cliente regular" classname="com.events.billing.discount.CustomerCategoryDiscountRuleTest" time="0.001"/>
+  <testcase name="deberia manejar montos pequenios sin errores ni negativos" classname="com.events.billing.discount.CustomerCategoryDiscountRuleTest" time="0.003"/>
+  <testcase name="deberia aplicar 15% de descuento para un estudiante" classname="com.events.billing.discount.CustomerCategoryDiscountRuleTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

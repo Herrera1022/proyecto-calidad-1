@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CouponDiscountRule" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-08-18T01:35:20.460Z" hostname="LAPTOP-LGJRM4V2" time="0.468">
+  <properties/>
+  <testcase name="deberia lanzar excepcion cuando el cupon no existe" classname="com.events.billing.discount.CouponDiscountRuleTest" time="0.021"/>
+  <testcase name="deberia lanzar excepcion cuando el codigo de cupon es vacio" classname="com.events.billing.discount.CouponDiscountRuleTest" time="0.006"/>
+  <testcase name="deberia lanzar excepcion cuando el codigo de cupon es nulo" classname="com.events.billing.discount.CouponDiscountRuleTest" time="0.005"/>
+  <testcase name="deberia lanzar excepcion cuando el cupon esta expirado" classname="com.events.billing.discount.CouponDiscountRuleTest" time="0.002"/>
+  <testcase name="monto=100.0, cupon=20.0 -&gt; esperado=80.0" classname="com.events.billing.discount.CouponDiscountRuleTest" time="0.109"/>
+  <testcase name="monto=50.0, cupon=50.0 -&gt; esperado=0.0" classname="com.events.billing.discount.CouponDiscountRuleTest" time="0.002"/>
+  <testcase name="monto=30.0, cupon=40.0 -&gt; esperado=0.0" classname="com.events.billing.discount.CouponDiscountRuleTest" time="0.003"/>
+  <testcase name="monto=200.0, cupon=0.0 -&gt; esperado=200.0" classname="com.events.billing.discount.CouponDiscountRuleTest" time="0.005"/>
+  <testcase name="deberia aplicar el descuento cuando el cupon es valido" classname="com.events.billing.discount.CouponDiscountRuleTest" time="0.002"/>
+  <testcase name="deberia dejar el total en cero cuando el descuento supera el monto" classname="com.events.billing.discount.CouponDiscountRuleTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

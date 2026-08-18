@@ -1,5 +1,6 @@
 plugins {
     java
+    application
 }
 
 group = "com.events.billing"
@@ -8,8 +9,18 @@ version = "1.0.0"
 java {
     // Java moderno (17+). El toolchain hace que Gradle use exactamente esta version.
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(25)
     }
+}
+
+
+
+application {
+    mainClass = "com.events.billing.Main"
+}
+
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
 }
 
 repositories {

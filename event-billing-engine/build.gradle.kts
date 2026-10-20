@@ -1,6 +1,8 @@
 plugins {
     java
     application
+    // Cobertura de pruebas
+    jacoco
     // Analisis estatico con SonarQube Cloud
     id("org.sonarqube") version "7.5.0.8588"
 }
@@ -47,6 +49,25 @@ tasks.test {
         // Muestra en consola los println de los performance tests.
         showStandardStreams = true
     }
+
+    // Al terminar las pruebas se genera el reporte de cobertura.
+    finalizedBy(tasks.jacocoTestReport)
+}
+
+// ===================== JaCoCo (cobertura) =====================
+jacoco {
+    // 0.8.13 soporta clases compiladas con Java 21.
+    toolVersion = "0.8.13"
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    reports {
+        // XML: lo importa SonarQube Cloud como cobertura.
+        xml.required = true
+        // HTML: para ver la cobertura en local en build/reports/jacoco/test/html/index.html
+        html.required = true
+    }
 }
 
 // ===================== SonarQube Cloud =====================
@@ -56,7 +77,10 @@ sonar {
         property("sonar.projectKey", "Herrera1022_proyecto-calidad-1")
         property("sonar.organization", "herrera1022")
         property("sonar.host.url", "https://sonarcloud.io")
+        // Reporte XML de JaCoCo que SonarQube Cloud importa como cobertura.
+        property("sonar.coverage.jacoco.xmlReportPaths",
+                 "build/reports/jacoco/test/jacocoTestReport.xml")
         // Etapa del analisis: aparece en la pestana Activity de SonarCloud.
-        property("sonar.projectVersion", "1.0")
+        property("sonar.projectVersion", "1.1")
     }
 }

@@ -22,7 +22,7 @@ public class CustomerCategoryDiscountRule implements DiscountRule {
 
     @Override
     public double apply(double amount, Purchase purchase) {
-        Customer cliente = purchase.getCliente();
+        Customer cliente = purchase.cliente();
         CustomerCategory categoria = cliente.getCategoria();
 
         double tasa = (categoria == null) ? 0.0 : categoria.getDiscountRate();

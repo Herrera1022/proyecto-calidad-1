@@ -40,7 +40,7 @@ public class DiscountEngine {
     public double calculateTotal(Purchase purchase) {
         Objects.requireNonNull(purchase, "la compra no puede ser nula");
 
-        double total = purchase.getSubtotal();
+        double total = purchase.subtotal();
 
         for (DiscountRule regla : reglas) {
             total = regla.apply(total, purchase);

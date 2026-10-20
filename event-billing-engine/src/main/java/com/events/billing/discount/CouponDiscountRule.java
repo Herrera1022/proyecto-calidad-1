@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * DECISION DE DISENO: la regla se construye con un repositorio de cupones
  * validos (un Map codigo -> Coupon). El codigo a aplicar se toma de la compra
- * ({@code purchase.getCodigoCupon()}), de modo que la misma regla sirve para
+ * ({@code purchase.codigoCupon()}), de modo que la misma regla sirve para
  * cualquier compra sin recrearla.
  *
  * Validaciones (todas lanzan {@link InvalidCouponException}):
@@ -32,7 +32,7 @@ public class CouponDiscountRule implements DiscountRule {
 
     @Override
     public double apply(double amount, Purchase purchase) {
-        String codigo = purchase.getCodigoCupon();
+        String codigo = purchase.codigoCupon();
 
         if (codigo == null || codigo.isBlank()) {
             throw new InvalidCouponException("El codigo de cupon es nulo o vacio");
@@ -43,11 +43,11 @@ public class CouponDiscountRule implements DiscountRule {
             throw new InvalidCouponException("El cupon no existe: " + codigo);
         }
 
-        if (cupon.estaExpirado(purchase.getFechaCompra())) {
+        if (cupon.estaExpirado(purchase.fechaCompra())) {
             throw new InvalidCouponException("El cupon esta vencido: " + codigo);
         }
 
-        double resultado = amount - cupon.getMontoDescuento();
+        double resultado = amount - cupon.montoDescuento();
         return Math.max(0.0, resultado); // el total nunca queda negativo
     }
 }

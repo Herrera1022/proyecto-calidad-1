@@ -30,10 +30,10 @@ class PurchaseTest {
         Purchase compra = new Purchase(cliente, tickets, "PROMO20", HOY);
 
         // Assert
-        assertSame(cliente, compra.getCliente());
-        assertEquals(tickets, compra.getTickets());
-        assertEquals("PROMO20", compra.getCodigoCupon());
-        assertEquals(HOY, compra.getFechaCompra());
+        assertSame(cliente, compra.cliente());
+        assertEquals(tickets, compra.tickets());
+        assertEquals("PROMO20", compra.codigoCupon());
+        assertEquals(HOY, compra.fechaCompra());
     }
 
     @Test
@@ -43,7 +43,7 @@ class PurchaseTest {
         Purchase compra = new Purchase(cliente, tickets, null, HOY);
 
         // Act
-        double subtotal = compra.getSubtotal();
+        double subtotal = compra.subtotal();
 
         // Assert
         assertEquals(150.0, subtotal, DELTA);
@@ -56,7 +56,7 @@ class PurchaseTest {
         Purchase compra = new Purchase(cliente, tickets, null, HOY);
 
         // Assert
-        assertNull(compra.getCodigoCupon());
+        assertNull(compra.codigoCupon());
     }
 
     @Test
@@ -70,8 +70,8 @@ class PurchaseTest {
         original.clear();
 
         // Assert
-        assertEquals(2, compra.getTickets().size());
-        List<Ticket> expuestos = compra.getTickets();
+        assertEquals(2, compra.tickets().size());
+        List<Ticket> expuestos = compra.tickets();
         assertThrows(UnsupportedOperationException.class, expuestos::clear);
     }
 

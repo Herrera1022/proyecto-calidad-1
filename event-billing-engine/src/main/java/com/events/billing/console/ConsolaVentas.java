@@ -136,7 +136,7 @@ public class ConsolaVentas {
         Purchase venta = new Purchase(cliente, construirTickets(items), cuponCode, hoy());
 
         // 6) Calculo con desglose (usando las reglas del dominio)
-        double subtotal = venta.getSubtotal();
+        double subtotal = venta.subtotal();
         double trasCategoria = reglaCategoria.apply(subtotal, venta);
         double total = (cuponCode != null)
                 ? new DiscountEngine(List.of(reglaCategoria, reglaCupon)).calculateTotal(venta)
@@ -235,7 +235,7 @@ public class ConsolaVentas {
             out.println("  > El cupon '" + upper + "' esta vencido.");
             return false;
         }
-        out.printf(Locale.US, "  > Cupon aplicado: %s (-%s)%n", upper, money(cupon.getMontoDescuento()));
+        out.printf(Locale.US, "  > Cupon aplicado: %s (-%s)%n", upper, money(cupon.montoDescuento()));
         return true;
     }
 
@@ -250,7 +250,7 @@ public class ConsolaVentas {
         out.println(raya('-'));
         for (Coupon c : cupones.values()) {
             String estado = c.estaExpirado(hoy()) ? "vencido" : "vigente";
-            out.printf(Locale.US, " %-16s %-12s %-12s%n", c.getCodigo(), "-" + money(c.getMontoDescuento()), estado);
+            out.printf(Locale.US, " %-16s %-12s %-12s%n", c.codigo(), "-" + money(c.montoDescuento()), estado);
         }
         out.println(raya('='));
         entrada.pausa();

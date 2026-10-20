@@ -5,24 +5,21 @@ import java.time.LocalDate;
 /**
  * Representa un cupon de descuento de MONTO FIJO.
  * La fecha de expiracion es opcional: si es null, el cupon no vence.
- * Clase inmutable con validacion en el constructor.
+ * Inmutable (record) con validacion en el constructor.
+ *
+ * @param codigo          codigo del cupon (no nulo ni vacio)
+ * @param montoDescuento  monto fijo a descontar (no negativo)
+ * @param fechaExpiracion ultimo dia de validez; null = sin vencimiento
  */
-public final class Coupon {
+public record Coupon(String codigo, double montoDescuento, LocalDate fechaExpiracion) {
 
-    private final String codigo;
-    private final double montoDescuento;
-    private final LocalDate fechaExpiracion; // null = sin vencimiento
-
-    public Coupon(String codigo, double montoDescuento, LocalDate fechaExpiracion) {
+    public Coupon {
         if (codigo == null || codigo.isBlank()) {
             throw new IllegalArgumentException("El codigo del cupon no puede ser nulo o vacio");
         }
         if (montoDescuento < 0) {
             throw new IllegalArgumentException("El monto de descuento no puede ser negativo: " + montoDescuento);
         }
-        this.codigo = codigo;
-        this.montoDescuento = montoDescuento;
-        this.fechaExpiracion = fechaExpiracion;
     }
 
     /**
@@ -31,17 +28,5 @@ public final class Coupon {
      */
     public boolean estaExpirado(LocalDate fechaReferencia) {
         return fechaExpiracion != null && fechaReferencia.isAfter(fechaExpiracion);
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public double getMontoDescuento() {
-        return montoDescuento;
-    }
-
-    public LocalDate getFechaExpiracion() {
-        return fechaExpiracion;
     }
 }

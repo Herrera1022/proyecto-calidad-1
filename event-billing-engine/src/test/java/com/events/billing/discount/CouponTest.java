@@ -26,9 +26,9 @@ class CouponTest {
         Coupon cupon = new Coupon("PROMO20", 20.0, VENCE);
 
         // Assert
-        assertEquals("PROMO20", cupon.getCodigo());
-        assertEquals(20.0, cupon.getMontoDescuento(), DELTA);
-        assertEquals(VENCE, cupon.getFechaExpiracion());
+        assertEquals("PROMO20", cupon.codigo());
+        assertEquals(20.0, cupon.montoDescuento(), DELTA);
+        assertEquals(VENCE, cupon.fechaExpiracion());
     }
 
     @ParameterizedTest(name = "codigo=[{0}]")

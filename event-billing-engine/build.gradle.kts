@@ -9,7 +9,8 @@ version = "1.0.0"
 java {
     // Java moderno (17+). El toolchain hace que Gradle use exactamente esta version.
     toolchain {
-        languageVersion = JavaLanguageVersion.of(25)
+        // Java 21 (LTS): es el JDK instalado en el equipo del analisis local.
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 

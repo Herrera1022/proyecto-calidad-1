@@ -81,6 +81,6 @@ sonar {
         property("sonar.coverage.jacoco.xmlReportPaths",
                  "build/reports/jacoco/test/jacocoTestReport.xml")
         // Etapa del analisis: aparece en la pestana Activity de SonarCloud.
-        property("sonar.projectVersion", "1.3")
+        property("sonar.projectVersion", "1.4")
     }
 }

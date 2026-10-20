@@ -1,6 +1,8 @@
 plugins {
     java
     application
+    // Analisis estatico con SonarQube Cloud
+    id("org.sonarqube") version "7.5.0.8588"
 }
 
 group = "com.events.billing"
@@ -44,5 +46,17 @@ tasks.test {
         events("passed", "skipped", "failed")
         // Muestra en consola los println de los performance tests.
         showStandardStreams = true
+    }
+}
+
+// ===================== SonarQube Cloud =====================
+// El token NO va aqui: el plugin lo lee de la variable de entorno SONAR_TOKEN.
+sonar {
+    properties {
+        property("sonar.projectKey", "Herrera1022_proyecto-calidad-1")
+        property("sonar.organization", "herrera1022")
+        property("sonar.host.url", "https://sonarcloud.io")
+        // Etapa del analisis: aparece en la pestana Activity de SonarCloud.
+        property("sonar.projectVersion", "1.0")
     }
 }
